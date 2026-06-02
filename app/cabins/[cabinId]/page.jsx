@@ -1,18 +1,37 @@
-import { getCabin } from "@/app/_lib/data-service";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
+import { getCabin } from "@/app/_lib/data-service";
+import { getCabins } from "@/app/_lib/data-service";
 import Image from "next/image";
 
+export const generateMetadata = async ({ params }) => {
+  const { name } = await getCabin(params.cabinId);
+  return { title: `Cabin ${name} - Details and Reservation` };
+};
 
-export default async function Page({params}) {
+export async function generateStaticParams() {
+  const cabins = await getCabins();
+
+  const ids = cabins.map((cabin) => ({ cabinId: cabin.id }));
+
+  return ids;
+}
+
+export default async function Page({ params }) {
   const cabin = await getCabin(params.cabinId);
 
-  const { id, name, maxCapacity, regularPrice, discount, image, description } = cabin;
+  const { id, name, maxCapacity, regularPrice, discount, image, description } =
+    cabin;
 
   return (
     <div className="max-w-6xl mx-auto mt-5">
       <div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24 rounded-lg">
         <div className="relative">
-          <Image fill className="object-cover rounded-lg" src={image} alt={`Cabin ${name}`} />
+          <Image
+            fill
+            className="object-cover rounded-lg"
+            src={image}
+            alt={`Cabin ${name}`}
+          />
         </div>
 
         <div>
