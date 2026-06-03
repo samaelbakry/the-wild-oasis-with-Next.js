@@ -1,6 +1,3 @@
-import Logo from "@/app/_components/Logo";
-import Navigation from "@/app/_components/Navigation";
-
 import { Josefin_Sans } from "next/font/google";
 
 const josefin = Josefin_Sans({
@@ -8,7 +5,7 @@ const josefin = Josefin_Sans({
   display: "swap",
 });
 
-import "@/app/_styles/globals.css";
+import "../app/_styles/globals.css";
 import Header from "./_components/Header";
 
 export const metadata = {
