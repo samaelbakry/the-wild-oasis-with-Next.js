@@ -7,6 +7,7 @@ const josefin = Josefin_Sans({
 
 import "../app/_styles/globals.css";
 import Header from "./_components/Header";
+import {ReservationProvider} from "./_components/ReservationContext";
 
 export const metadata = {
   title: {
@@ -20,7 +21,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
+      <ReservationProvider>
+        <body
         className={`${josefin.className} antialiased bg-primary-950 text-primary-100 min-h-screen flex flex-col relative`}
       >
         <Header />
@@ -29,6 +31,8 @@ export default function RootLayout({ children }) {
           <main className="max-w-7xl mx-auto w-full">{children}</main>
         </div>
       </body>
+      </ReservationProvider>
+      
     </html>
   );
 }

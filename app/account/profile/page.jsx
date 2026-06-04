@@ -1,5 +1,5 @@
-import SelectCountry from "@/app/_components/SelectCountry";
-import UpdateProfile from "@/app/_components/UpdateProfile";
+import SelectCountry from "../../_components/SelectCountry";
+import UpdateProfile from "../../_components/UpdateProfile";
 
 export const metadata = {
   title: "Update profile",
