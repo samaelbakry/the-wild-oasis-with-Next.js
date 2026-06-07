@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
 @layer components {
   .spinner {
     margin: 3.2rem auto 1.6rem;
